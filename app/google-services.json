@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "961064154608",
+    "project_id": "restaurante-popular-18425",
+    "storage_bucket": "restaurante-popular-18425.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:961064154608:android:7525b1e03a1c50d5899935",
+        "android_client_info": {
+          "package_name": "com.example.restaurantepopular"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdavHMWDskNdTOl04__VpTbiBBE9joI7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
