@@ -13,6 +13,7 @@ import com.example.restaurantepopular.ui.componets.banner.Banner
 import com.example.restaurantepopular.ui.componets.menu.MenuScreen
 import com.example.restaurantepopular.ui.componets.tickets.TicketsScreen
 import com.example.restaurantepopular.ui.componets.navBar.NavBar
+import com.example.restaurantepopular.ui.componets.registerMenu.RegisterMenuScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +39,7 @@ class MainActivity : ComponentActivity() {
                         .padding(innerPadding)
                 ) {
                     TicketsScreen()
-                    MenuScreen()
+                    RegisterMenuScreen()
                 }
             }
         }
