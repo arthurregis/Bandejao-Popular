@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.DataExploration
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Icon
 import androidx.compose.ui.Modifier
@@ -16,19 +16,19 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun NavBar(
+fun NavBarAdmin(
     onHome: () -> Unit,
-    onAvaliar: () -> Unit,
+    onGerenciar: () -> Unit,
     onProfile: () -> Unit
 ) {
     NavigationBar(containerColor = Color(0xFF0A57C8)) {
 
         NavigationBarItem(
             selected = false,
-            onClick = onAvaliar,
+            onClick = onGerenciar,
             icon = {
                 Icon(
-                    imageVector = Icons.Filled.Star,
+                    imageVector = Icons.Filled.DataExploration,
                     contentDescription = null,
                     modifier = Modifier.size(50.dp),
                     tint = Color.White
@@ -36,7 +36,7 @@ fun NavBar(
             },
             label = {
                 Text(
-                    "AVALIAR",
+                    "GERENCIAR",
                     color = Color.White,
                     fontSize = 16.sp,
                 )

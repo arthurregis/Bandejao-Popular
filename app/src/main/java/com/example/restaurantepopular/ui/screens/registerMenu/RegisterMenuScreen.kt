@@ -1,4 +1,4 @@
-package com.example.restaurantepopular.ui.componets.registerMenu
+package com.example.restaurantepopular.ui.screens.registerMenu
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -40,9 +40,8 @@ fun RegisterMenuScreen(
 
     Column(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(20.dp)
-            .verticalScroll(rememberScrollState()),
+            .fillMaxWidth()
+            .padding(20.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Row(
@@ -80,7 +79,7 @@ fun RegisterMenuScreen(
                 .padding(top = 6.dp),
             textStyle = TextStyle(fontSize = 16.sp),
             singleLine = false,              // permite múltiplas linhas
-            maxLines = Int.MAX_VALUE         // permite quebrar para baixo
+            maxLines = 3     // permite quebrar para baixo
         )
 
         Spacer(modifier = Modifier.height(20.dp))
@@ -114,7 +113,7 @@ fun RegisterMenuScreen(
                 .padding(top = 6.dp),
             textStyle = TextStyle(fontSize = 16.sp),
             singleLine = false,              // permite múltiplas linhas
-            maxLines = Int.MAX_VALUE         // permite quebrar para baixo
+            maxLines = 3         // permite quebrar para baixo
         )
 
         Spacer(modifier = Modifier.height(20.dp))
@@ -132,7 +131,7 @@ fun RegisterMenuScreen(
                 .padding(top = 6.dp),
             textStyle = TextStyle(fontSize = 16.sp),
             singleLine = false,              // permite múltiplas linhas
-            maxLines = Int.MAX_VALUE         // permite quebrar para baixo
+            maxLines = 3        // permite quebrar para baixo
         )
 
         Spacer(modifier = Modifier.height(20.dp))

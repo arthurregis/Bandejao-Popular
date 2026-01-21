@@ -52,17 +52,25 @@ dependencies {
 
     implementation(libs.androidx.compose.material3)
 //    implementation("androidx.compose.material3:material3:1.2.1")
-    implementation("androidx.compose.material:material-icons-extended:1.7.0")
+    implementation(libs.androidx.compose.material.icons.extended)
 
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.2")
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
 
-    implementation(platform("com.google.firebase:firebase-bom:34.6.0"))
-    implementation("com.google.firebase:firebase-analytics")
-    implementation("com.google.firebase:firebase-firestore")
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.firestore)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.compose.ui.text)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.compose.runtime)
+
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.runtime)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.firebase.auth)
+    implementation(libs.androidx.compose.foundation)
+
+    implementation(libs.itext7.core)
 
     testImplementation(libs.junit)
 

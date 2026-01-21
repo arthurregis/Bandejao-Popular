@@ -1,4 +1,4 @@
-package com.example.restaurantepopular.ui.componets.registerMenu
+package com.example.restaurantepopular.ui.screens.registerMenu
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

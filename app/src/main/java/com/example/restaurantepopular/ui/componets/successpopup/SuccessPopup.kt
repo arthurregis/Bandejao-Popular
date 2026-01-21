@@ -29,6 +29,7 @@ import kotlinx.coroutines.delay
 @Composable
 fun SuccessPopup(
     message: String = "Salvo com sucesso!",
+//    visible: Boolean,
     onDismiss: () -> Unit
 ) {
     // Anima o scale (crescer a caixinha)

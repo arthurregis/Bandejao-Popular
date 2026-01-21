@@ -58,13 +58,6 @@ fun TicketsScreen(viewModel: TicketsViewModel = viewModel()) {
                 modifier = Modifier.weight(1f)
             )
 
-//            Text(
-//                modifier = Modifier.padding(10.dp),
-//                text = tickets.toString(),
-//                fontWeight = FontWeight.Bold,
-//                fontSize = 28.sp
-//            )
-
             if (isEditing) {
                 // Campo editável invisível (estilizado como número grande)
                 BasicTextField(

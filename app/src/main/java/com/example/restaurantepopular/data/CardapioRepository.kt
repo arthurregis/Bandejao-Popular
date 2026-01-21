@@ -1,5 +1,6 @@
 package com.example.restaurantepopular.data
 
+import com.example.restaurantepopular.model.Cardapio
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
 
@@ -50,6 +51,20 @@ class CardapioRepository {
         } catch (e: Exception) {
             e.printStackTrace()
             false
+        }
+    }
+
+    suspend fun buscarCardapio(data: String): Cardapio? {
+        return try {
+            val doc = db.collection("cardapios")
+                .document(data)
+                .get()
+                .await()
+
+            doc.toObject(Cardapio::class.java)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
         }
     }
 }
