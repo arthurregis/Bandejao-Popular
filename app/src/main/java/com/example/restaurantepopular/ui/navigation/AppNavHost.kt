@@ -112,18 +112,16 @@ fun AppNavHost(
 
             RegisterUserScreen(
                 navController = navController,
-                onRegisterClick = { name, email, password ->
+                onRegisterClick = { name, email, password, onSuccess, onError ->
                     viewModel.registerUser(
                         name = name,
                         email = email,
                         password = password,
                         onSuccess = {
-                            navController.navigate(Routes.LOGIN) {
-                                popUpTo(Routes.REGISTER) { inclusive = true }
-                            }
+                            onSuccess()
                         },
-                        onError = {
-                            // tratar erro
+                        onError = { msg ->
+                            onError(msg)
                         }
                     )
                 }

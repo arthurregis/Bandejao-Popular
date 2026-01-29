@@ -2,6 +2,7 @@ package com.example.restaurantepopular.data.repository
 
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
 
 object AuthRepository {
 
@@ -37,7 +38,13 @@ object AuthRepository {
                     Log.d("AUTH", "Usuário criado: ${auth.currentUser?.uid}")
                     onSuccess()
                 } else {
-                    onError(task.exception?.message ?: "Erro ao cadastrar")
+                    val errorMessage = when (task.exception) {
+                        is FirebaseAuthUserCollisionException ->
+                            "Email já cadastrado"
+                        else ->
+                            "Erro ao cadastrar usuário"
+                    }
+                    onError(errorMessage)
                 }
             }
     }

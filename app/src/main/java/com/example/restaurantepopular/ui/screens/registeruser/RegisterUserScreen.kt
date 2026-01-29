@@ -20,6 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -38,7 +39,13 @@ import com.example.restaurantepopular.ui.navigation.Routes
 fun RegisterUserScreen(
     navController: NavController,
     onGoogleClick: () -> Unit = {},
-    onRegisterClick: (String, String, String) -> Unit
+    onRegisterClick: (
+        name: String,
+        email: String,
+        password: String,
+        onSuccess: () -> Unit,
+        onError: (String) -> Unit
+    ) -> Unit
 ) {
     var name by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
@@ -51,6 +58,9 @@ fun RegisterUserScreen(
     var error by remember { mutableStateOf<String?>(null) }
 
     var showSuccess by remember { mutableStateOf(false) }
+
+//    val scope = rememberCoroutineScope()
+//    val repository = AuthRepository()
 
     Column(
         modifier = Modifier
@@ -96,12 +106,6 @@ fun RegisterUserScreen(
             singleLine = true,
             label = { Text("Senha") },
             visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
-//            trailingIcon = {
-//                val icon = if (passwordVisible) Icons.Default.VisibilityOff else Icons.Default.Visibility
-//                IconButton(onClick = { passwordVisible = !passwordVisible }) {
-//                    Icon(icon, contentDescription = "Mostrar/ocultar senha")
-//                }
-//            },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(bottom = 16.dp)
@@ -114,12 +118,6 @@ fun RegisterUserScreen(
             singleLine = true,
             label = { Text("Confirmar Senha") },
             visualTransformation = if (confirmPasswordVisible) VisualTransformation.None else PasswordVisualTransformation(),
-//            trailingIcon = {
-//                val icon = if (confirmPasswordVisible) Icons.Default.VisibilityOff else Icons.Default.Visibility
-//                IconButton(onClick = { confirmPasswordVisible = !confirmPasswordVisible }) {
-//                    Icon(icon, contentDescription = "Mostrar/ocultar confirmação")
-//                }
-//            },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(bottom = 64.dp)
@@ -132,7 +130,12 @@ fun RegisterUserScreen(
         // Botão CADASTRAR
         Button(
             onClick = {
-                onRegisterClick(name, email, password)
+                error = null
+                onRegisterClick(name, email, password, {
+                    showSuccess = true
+                }, { msg ->
+                    error = msg
+                })
             },
             modifier = Modifier
                 .fillMaxWidth()
